@@ -10,4 +10,6 @@ import org.springframework.data.jpa.repository.JpaRepository
 interface TokenRepo : JpaRepository<Token, Long>{
     fun findByTokenKey(tokenKey: String): Token
     fun existsByTokenKey(tokenKey: String): Boolean
+    fun findByGatewayProvider(provider: String): Token
+    fun existsByGatewayProvider(provider: String): Boolean
 }

@@ -17,7 +17,7 @@ class Token {
     var tokenKey : String = ""
 
     @Column(nullable = false, name = "payment_gateway")
-    var paymentGateway : String = ""
+    var gatewayProvider : String = ""
 
     @Column
     var mutable: Boolean = false

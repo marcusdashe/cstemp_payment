@@ -37,7 +37,7 @@ class Txn {
 
     @Column(name = "txn_status")
     @Enumerated(EnumType.STRING)
-    var status : PaymentStatus = PaymentStatus.UNINIT
+    var status : PaymentStatus = PaymentStatus.AWAITING
 
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)

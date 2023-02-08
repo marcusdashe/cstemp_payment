@@ -6,7 +6,7 @@ package org.cstemp.payment.dto
 
 object cs
 enum class PaymentStatus {
-    UNINIT,
+    AWAITING,
     SUCCESS,
     FAILED,
 }
@@ -15,7 +15,9 @@ enum class PaymentStatus {
 enum class ServicePlatform {
     ELIMI,
     NSQ,
-    CAA
+    SITEWORX,
+    CAA,
+    UNKNOWN
 }
 
 enum class OrganisationType {
