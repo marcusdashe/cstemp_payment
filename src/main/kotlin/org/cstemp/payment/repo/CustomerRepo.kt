@@ -20,4 +20,5 @@ interface CustomerRepo : JpaRepository<Customer, UUID> {
 //    fun findByTxnCount(count: Int): List<Customer?>
 
     fun findByCreated(date: Date): List<Customer?>
+
 }

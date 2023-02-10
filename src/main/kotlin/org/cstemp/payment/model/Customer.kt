@@ -40,4 +40,5 @@ class Customer {
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     var created: Date = Date()
+//    private Date created = new Date()
 }

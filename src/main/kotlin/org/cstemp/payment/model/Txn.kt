@@ -25,6 +25,15 @@ class Txn {
     @Column(name="id", unique = true, nullable = false)
     var id: UUID = UUID.randomUUID()
 
+    @Column(name="customer_name")
+    var customerName: String? = null
+
+    @Column(name = "payment_reference", unique = true)
+    var paymentReference: String? = null
+
+    @Column(name = "invoice_number", unique = true)
+    var invoiceNumber: String? = null
+
     @Column
     var currency: String = Currency.getInstance("NGN").symbol
 

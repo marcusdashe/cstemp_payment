@@ -26,7 +26,6 @@ class TokenService(private val tokenRepo: TokenRepo): CommandLineRunner {
     @Value("\${seerbit.payment.gateway.secretkey}")
     private val privateKey: String? = null
     override fun run(vararg args: String?) {
-
         try{
             val seerbit: Seerbit = SeerbitImpl()
             client = Client()
@@ -40,19 +39,21 @@ class TokenService(private val tokenRepo: TokenRepo): CommandLineRunner {
             val jsonString = String.format("auth response: \n%s", json.toString())
             token = authService.token
 
-            if(!token.isEmpty()){
+            if(token == null || token.isEmpty()) {
+                println("Token is either empty or null")
+            } else {
                 val tokenModel = Token()
                 tokenModel.tokenKey = token
                 tokenModel.gatewayProvider =  "Seerbit"
                 val output = tokenRepo.save(tokenModel)
-                println(output)
+                println(token)
             }
-            println("Empty token")
 
         }catch(e: Exception){
             println(e.message)
+            println("Error occured while getting or saving token")
         } finally {
-            println("Ooooops! Could not get Token key from Seerbit")
+            println("Control now handed to controllers")
         }
     }
 }
